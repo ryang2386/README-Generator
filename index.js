@@ -33,9 +33,7 @@ async function init() {
                 choices: ['MIT', 'Apache', 'GPL'],
             },
         ])
-        .then((response) => {
-            fs.appendFileSync('README.md', `\n ## License\n ${response.license}\n`);
-        });
+        fs.appendFileSync('README.md', `\n ## License\n ${license.license}\n`);
         console.log(license);
         console.log(generateMarkdown.renderLicenseBadge(license));
 }
