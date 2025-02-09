@@ -1,14 +1,16 @@
-# Ryan's Project
+# Project G O D
 
 ## Description
-It is a very nice project.
+This project is a holy experience.
 
  ## Installation
-Install VS Code.
+Installing at will.
+
  ## Usage
-Use it well.
-- ## Contribution
- Contributors are many.
-- ##Tests
- Test and repeat.
--
+Use it as many times as you want.
+
+ ## Contribution
+ Contributors are welcome.
+
+ ## Tests
+ Testing is neverending.

@@ -7,44 +7,9 @@ let name = ['title', 'description', 'installation', 'usage', 'contributing', 'te
 
 questions = ['What is the title of your project?', 'Describe your project.', 'What are the installation instructions?', 'What is the usage of this project?', 'What are your contribution guidelines?', 'What are the test instructions?'];
 
-// console.log(questions);
-
-// inquirer
-//     .prompt([
-// {
-//     type: 'input',
-//     message: questions[0],
-//     name: 'title',
-// },
-// {
-//     type: 'input',
-//     message: questions[1],
-//     name: 'description',
-// },
-// {
-//     type: 'input',
-//     message: questions[2],
-//     name: 'installation',
-// },
-// {
-//     type: 'input',
-//     message: questions[3],
-//     name: 'usage',
-// },
-// {
-//     type: 'input',
-//     message: questions[4],
-//     name: 'contributing',
-// },
-// {
-//     type: 'input',
-//     message: questions[5],
-//     name: 'tests',
-// },
-//     ])
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFileSync(fileName, `# ${data.title}\n\n## Description\n${data.description}\n\n ## Installation\n${data.installation}\n ## Usage\n${data.usage}\n- ## Contribution\n ${data.contributing}\n- ##Tests\n ${data.tests}\n-`);
+    fs.writeFileSync(fileName, `# ${data.title}\n\n## Description\n${data.description}\n\n ## Installation\n${data.installation}\n\n ## Usage\n${data.usage}\n\n ## Contribution\n ${data.contributing}\n\n ## Tests\n ${data.tests}\n`);
 }
 
 // TODO: Create a function to initialize app
