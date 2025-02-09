@@ -1,11 +1,10 @@
 // TODO: Include packages needed for this application
 import inquirer from 'inquirer';
 import fs from 'fs';
+import generateMarkdown from './utils/generateMarkdown.js';
 // TODO: Create an array of questions for user input
-let questions = [];
+let questions = ['What is the title of your project?', 'Describe your project.', 'What are the installation instructions?', 'What is the usage of this project?', 'What are your contribution guidelines?', 'What are the test instructions?'];
 let name = ['title', 'description', 'installation', 'usage', 'contributing', 'tests'];
-
-questions = ['What is the title of your project?', 'Describe your project.', 'What are the installation instructions?', 'What is the usage of this project?', 'What are your contribution guidelines?', 'What are the test instructions?'];
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
@@ -26,7 +25,19 @@ async function init() {
             answers[name[i]] = answer[name[i]];
     };
     writeToFile('README.md', answers);
+    const license = await inquirer.prompt([
+            {
+                type: 'list',
+                message: 'What license did you use?',
+                name: 'license',
+                choices: ['MIT', 'Apache', 'GPL'],
+            },
+        ])
+        .then((response) => {
+            fs.appendFileSync('README.md', `\n ## License\n ${response.license}\n`);
+        });
+        console.log(license);
+        console.log(generateMarkdown.renderLicenseBadge(license));
 }
-
 // Function call to initialize app
 init();

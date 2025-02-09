@@ -1,16 +1,19 @@
-# Project G O D
+# D
 
 ## Description
-This project is a holy experience.
+F
 
  ## Installation
-Installing at will.
+G
 
  ## Usage
-Use it as many times as you want.
+R
 
  ## Contribution
- Contributors are welcome.
+ T
 
  ## Tests
- Testing is neverending.
+ S
+
+ ## License
+ Apache
