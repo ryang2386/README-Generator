@@ -43,7 +43,9 @@ questions = ['What is the title of your project?', 'Describe your project.', 'Wh
 // },
 //     ])
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    fs.writeFileSync(fileName, `# ${data.title}\n\n## Description\n${data.description}\n\n ## Installation\n${data.installation}\n ## Usage\n${data.usage}\n- ## Contribution\n ${data.contributing}\n- ##Tests\n ${data.tests}\n-`);
+}
 
 // TODO: Create a function to initialize app
 async function init() {
@@ -58,6 +60,7 @@ async function init() {
             ]);
             answers[name[i]] = answer[name[i]];
     };
+    writeToFile('README.md', answers);
 }
 
 // Function call to initialize app
