@@ -30,12 +30,15 @@ async function init() {
                 type: 'list',
                 message: 'What license did you use?',
                 name: 'license',
-                choices: ['MIT', 'Apache', 'GPL'],
+                choices: ['MIT', 'Apache', 'GPL', 'None'],
             },
         ])
         fs.appendFileSync('README.md', `\n ## License\n ${license.license}\n`);
-        console.log(license);
-        console.log(generateMarkdown.renderLicenseBadge(license));
+        console.log(license.license);
+        const licenseBadge = generateMarkdown.renderLicenseBadge(license.license);
+        const readMe = fs.readFileSync('README.md', 'utf8');
+        // generateMarkdown.renderLicenseBadge(license.license);
+        fs.writeFileSync('README.md', `${licenseBadge}\n${readMe}`);
 }
 // Function call to initialize app
 init();

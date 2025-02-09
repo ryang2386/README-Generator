@@ -1,3 +1,4 @@
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 # G
 
 ## Description
@@ -10,10 +11,10 @@ R
 T
 
  ## Contribution
- Y
+ D
 
  ## Tests
- H
+ E
 
  ## License
  MIT
