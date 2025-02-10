@@ -34,11 +34,11 @@ async function init() {
             },
         ])
         fs.appendFileSync('README.md', `\n ## License\n ${license.license}\n`);
-        console.log(license.license);
         const licenseBadge = generateMarkdown.renderLicenseBadge(license.license);
         const readMe = fs.readFileSync('README.md', 'utf8');
-        // generateMarkdown.renderLicenseBadge(license.license);
         fs.writeFileSync('README.md', `${licenseBadge}\n${readMe}`);
+        const licenseSection = generateMarkdown.renderLicenseSection(license.license);
+        console.log(licenseSection);
 }
 // Function call to initialize app
 init();
