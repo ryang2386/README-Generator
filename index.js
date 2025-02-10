@@ -37,7 +37,9 @@ async function init() {
         const licenseBadge = generateMarkdown.renderLicenseBadge(license.license);
         const readMe = fs.readFileSync('README.md', 'utf8');
         fs.writeFileSync('README.md', `${licenseBadge}\n${readMe}`);
+        const licenseLink = generateMarkdown.renderLicenseLink(license.license);
         const licenseSection = generateMarkdown.renderLicenseSection(license.license);
+        console.log(licenseLink);
         console.log(licenseSection);
 }
 // Function call to initialize app
