@@ -41,9 +41,17 @@ function renderLicenseSection(license) {
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  return `# ${data.title}
+  // iterate through data and generate markdown for each section in README
+  let markdown = '';
+  for (const key in data) {
+    if (key === 'title') {
+      markdown += `# ${key}\n\n`;
+    } else {
+    markdown += `## ${key}\n\n`;
+    }
+  }
+  return markdown;
 
-`;
 }
 
 export default { generateMarkdown, renderLicenseBadge, renderLicenseLink, renderLicenseSection };

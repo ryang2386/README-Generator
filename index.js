@@ -26,15 +26,17 @@ async function init() {
     };
     writeToFile('README.md', answers);
     const license = await inquirer.prompt([
-            {
-                type: 'list',
-                message: 'What license did you use?',
-                name: 'license',
-                choices: ['MIT', 'Apache', 'GPL', 'None'],
-            },
-        ])
+        {
+            type: 'list',
+            message: 'What license did you use?',
+            name: 'license',
+            choices: ['MIT', 'Apache', 'GPL', 'None'],
+        },
+    ])
         fs.appendFileSync('README.md', `\n ## License\n ${license.license}\n`);
         const licenseBadge = generateMarkdown.renderLicenseBadge(license.license);
+        const markdown = generateMarkdown.generateMarkdown(answers);
+        console.log(markdown);
         const readMe = fs.readFileSync('README.md', 'utf8');
         fs.writeFileSync('README.md', `${licenseBadge}\n${readMe}`);
         const licenseLink = generateMarkdown.renderLicenseLink(license.license);

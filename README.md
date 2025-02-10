@@ -1,20 +1,20 @@
-
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 # r
 
 ## Description
-t
+e
 
  ## Installation
-e
+a
 
  ## Usage
 d
 
  ## Contribution
- s
+ m
 
  ## Tests
- q
+ e
 
  ## License
- None
+ MIT
