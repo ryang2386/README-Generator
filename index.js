@@ -8,7 +8,7 @@ let name = ['title', 'description', 'installation', 'usage', 'contributing', 'te
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFileSync(fileName, `# ${data.title}\n\n## Description\n${data.description}\n\n ## Installation\n${data.installation}\n\n ## Usage\n${data.usage}\n\n ## Contribution\n ${data.contributing}\n\n ## Tests\n ${data.tests}\n`);
+    fs.writeFileSync(fileName, `# ${data.title}\n\n## Description\n${data.description}\n\n ## Installation\n${data.installation}\n\n ## Usage\n${data.usage}\n\n ## Contribution\n ${data.contributing}\n\n ## Tests\n ${data.tests}\n\n ## License\n ${data.license}\n\n ## Questions\n GitHub: ${data.github}\n\n Email: ${data.email}\n`);
 }
 
 // TODO: Create a function to initialize app
@@ -24,7 +24,6 @@ async function init() {
             ]);
             answers[name[i]] = answer[name[i]];
     };
-    writeToFile('README.md', answers);
     const license = await inquirer.prompt([
         {
             type: 'list',
@@ -33,16 +32,33 @@ async function init() {
             choices: ['MIT', 'Apache', 'GPL', 'None'],
         },
     ])
-        fs.appendFileSync('README.md', `\n ## License\n ${license.license}\n`);
+    const github = await inquirer.prompt([
+        {
+            type: 'input',
+            message: 'What is your GitHub username?',
+            name: 'github',
+        },
+    ]);
+    const email = await inquirer.prompt([
+        {
+            type: 'input',
+            message: 'What is your email?',
+            name: 'email',
+        },
+    ]);
+        answers.license = license.license;
+        answers.github = github.github;
+        answers.email = email.email;
+        writeToFile('README.md', answers);
         const licenseBadge = generateMarkdown.renderLicenseBadge(license.license);
-        const markdown = generateMarkdown.generateMarkdown(answers);
-        console.log(markdown);
+        // const markdown = generateMarkdown.generateMarkdown(answers);
+        // console.log(markdown);
         const readMe = fs.readFileSync('README.md', 'utf8');
         fs.writeFileSync('README.md', `${licenseBadge}\n${readMe}`);
-        const licenseLink = generateMarkdown.renderLicenseLink(license.license);
-        const licenseSection = generateMarkdown.renderLicenseSection(license.license);
-        console.log(licenseLink);
-        console.log(licenseSection);
+        // const licenseLink = generateMarkdown.renderLicenseLink(license.license);
+        // const licenseSection = generateMarkdown.renderLicenseSection(license.license);
+        // console.log(licenseLink);
+        // console.log(licenseSection);
 }
 // Function call to initialize app
 init();

@@ -18,3 +18,8 @@ d
 
  ## License
  MIT
+
+ ## Questions
+ GitHub: ryang2386
+
+ Email: gyale@gmail.com
