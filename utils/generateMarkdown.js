@@ -45,13 +45,15 @@ function generateMarkdown(data) {
   let markdown = '';
   for (const key in data) {
     if (key === 'title') {
-      markdown += `# ${key}\n\n`;
+      const capitalize = key;
+      markdown += `# ${capitalize.charAt(0).toUpperCase() + capitalize.slice(1)}\n\n`;
     } else if (key === 'github') {
       markdown += `## Questions\n\n`;
     } else if (key === 'email') {
       markdown += '';
     } else {
-    markdown += `## ${key}\n\n`;
+      const capitalize = key;
+      markdown += `## ${capitalize.charAt(0).toUpperCase() + capitalize.slice(1)}\n\n`;
     }
     }
     return markdown;

@@ -11,7 +11,7 @@ a
 d
 
  ## Contribution
- undefined
+ m
 
  ## Tests
  e
@@ -20,6 +20,6 @@ d
  MIT
 
  ## Questions
- GitHub: ryang2386 - https://github.com/ryang2386
+ GitHub: rt - https://github.com/rt
 
- Email: ryan.gayle1@gmail.com
+ Email: gy

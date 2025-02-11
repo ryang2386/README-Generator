@@ -8,7 +8,7 @@ let name = ['title', 'description', 'installation', 'usage', 'contribution', 'te
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFileSync(fileName, `# ${data.title}\n\n## Description\n${data.description}\n\n ## Installation\n${data.installation}\n\n ## Usage\n${data.usage}\n\n ## Contribution\n ${data.contributing}\n\n ## Tests\n ${data.tests}\n\n ## License\n ${data.license}\n\n ## Questions\n GitHub: ${data.github} - https://github.com/${data.github}\n\n Email: ${data.email}`);
+    fs.writeFileSync(fileName, `# ${data.title}\n\n## Description\n${data.description}\n\n ## Installation\n${data.installation}\n\n ## Usage\n${data.usage}\n\n ## Contribution\n ${data.contribution}\n\n ## Tests\n ${data.tests}\n\n ## License\n ${data.license}\n\n ## Questions\n GitHub: ${data.github} - https://github.com/${data.github}\n\n Email: ${data.email}`);
 }
 
 // TODO: Create a function to initialize app
