@@ -46,12 +46,17 @@ function generateMarkdown(data) {
   for (const key in data) {
     if (key === 'title') {
       markdown += `# ${key}\n\n`;
+    } else if (key === 'github') {
+      markdown += `## Questions\n\n`;
+    } else if (key === 'email') {
+      markdown += '';
     } else {
     markdown += `## ${key}\n\n`;
     }
+    }
+    return markdown;
   }
-  return markdown;
 
-}
+
 
 export default { generateMarkdown, renderLicenseBadge, renderLicenseLink, renderLicenseSection };
