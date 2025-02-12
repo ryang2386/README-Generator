@@ -15,7 +15,7 @@ function writeToFile(fileName, data, markdown) {
      let readMeFile = fs.readFileSync('README.md', 'utf8');
      fs.writeFileSync('README.md', `${readMeFile}\n\n## Description\n${data.description}\n\n ## Installation\n${data.installation}\n\n ## Usage\n${data.usage}\n\n ## Contribution\n ${data.contribution}\n\n ## Tests\n ${data.tests}\n\n`); 
      if (data.license === 'MIT') {
-        fs.appendFileSync('README.md', `## License\n ${data.license}\n\n Copyright © 2024 Ryan Gayle\n\n
+        fs.appendFileSync('README.md', `## License\n ${data.license}\n\n Copyright © 2024 ${data.fullName}\n\n
 
         Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
@@ -23,7 +23,7 @@ function writeToFile(fileName, data, markdown) {
 
         THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.`);
       } else if (data.license === 'Apache') {
-        fs.appendFileSync('README.md', `## License\n ${data.license}\n\n Copyright © 2024 Ryan Gayle\n\n
+        fs.appendFileSync('README.md', `## License\n ${data.license}\n\n Copyright © 2024 ${data.fullName}\n\n
 
         Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
@@ -31,7 +31,7 @@ function writeToFile(fileName, data, markdown) {
 
         Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.`);
       } else if (data.license === 'GPL') {
-        fs.appendFileSync('README.md', `## License\n ${data.license}\n\n Copyright © 2024 Ryan Gayle\n\n
+        fs.appendFileSync('README.md', `## License\n ${data.license}\n\n Copyright © 2024 ${data.fullName}\n\n
 
         This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
@@ -87,10 +87,18 @@ async function init() {
             name: 'contact',
         },
     ]);
+    const fullName = await inquirer.prompt([
+        {
+            type: 'input',
+            message: 'What is your name?',
+            name: 'fullName',
+        },
+    ]);
         answers.license = license.license;
         answers.github = github.github;
         answers.email = email.email;
         answers.contact = contact.contact;
+        answers.fullName = fullName.fullName;
 
         const licenseBadge = generateMarkdown.renderLicenseBadge(license.license);
         const licenseLink = generateMarkdown.renderLicenseLink(license.license);

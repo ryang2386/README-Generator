@@ -49,9 +49,7 @@ function generateMarkdown(data) {
       markdown += `# ${capitalize.charAt(0).toUpperCase() + capitalize.slice(1)}\n`;
     } else if (key === 'github') {
       markdown += `## Questions\n`;
-    } else if (key === 'email') {
-      markdown += '';
-    } else if (key === 'contact') {
+    } else if (key === 'email' || key === 'contact' || key === 'fullName') {
       markdown += '';
     } else {
       const capitalize = key;
