@@ -1,5 +1,5 @@
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/license/MIT)
-# r
+[]
+# README Generator
 
 ## Table of Contents
 
@@ -19,36 +19,26 @@
 
 
 ## Description
-e
+Ever needed help typing a README file? This application helps you to accomplish that feat by asking you a series of questions and placing each response in its correct section. The final result is a generated README file that you can use to attach to your project. Each README file contains seven sections: Description, Installation, Usage, Contribution, Tests, License, and Questions.
 
  ## Installation
-a
+Make sure to download Node.js from https://nodejs.org/en/download. Once Node.js is downloaded, make sure to open your terminal and use the command "npm install <package name> --save-dev" to use Node.js. Once that's done, use the command "npm i inquirer" to install the inquirer package, and you should be able to use the application.
 
  ## Usage
-d
+The project can be used to create a README file for anyone who is unfamiliar with creating their own. This application asks all of the necessary questions needed for a README file and places each answer in their respective sections.
 
  ## Contribution
- m
+ All contributions are welcome. If you have a suggestion on how to improve this application, please don't hesitate to fork the repo and create a pull request. Please don't forget to give this project a star! It'll be greatly appreciated!
 
  ## Tests
- e
+ Type "node index.js" to run the application, and type in an answer for each prompt. Once done, you'll see a README file generated. From there, you can check the format and see if each function is working as it should. I've ran this application through numerous tests to ensure that it works for all cases.
 
 ## License
- MIT
-
- Copyright © 2024 ryg
-
-
-
-        Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-        The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-        THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ None.
 
  ## Questions
- GitHub: rt - https://github.com/rt
+ GitHub: ryang2386 - https://github.com/ryang2386
 
- Email: yt
+ Email: gayler02@nyu.edu
 
- rew
+ I can be contacted through email between the times of 11 AM - 7 PM on weekdays. On weekends, please allow me 24 hours to respond to your questions. I look forward to receiving any feedback, constructive criticism, and questions that you may have about the application.
