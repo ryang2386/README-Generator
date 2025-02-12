@@ -46,19 +46,17 @@ function generateMarkdown(data) {
   for (const key in data) {
     if (key === 'title') {
       const capitalize = key;
-      markdown += `# ${capitalize.charAt(0).toUpperCase() + capitalize.slice(1)}\n\n`;
+      markdown += `# ${capitalize.charAt(0).toUpperCase() + capitalize.slice(1)}\n`;
     } else if (key === 'github') {
-      markdown += `## Questions\n\n`;
+      markdown += `## Questions\n`;
     } else if (key === 'email') {
       markdown += '';
     } else {
       const capitalize = key;
-      markdown += `## ${capitalize.charAt(0).toUpperCase() + capitalize.slice(1)}\n\n`;
+      markdown += `## ${capitalize.charAt(0).toUpperCase() + capitalize.slice(1)}\n`;
     }
     }
     return markdown;
-  }
-
-
+}
 
 export default { generateMarkdown, renderLicenseBadge, renderLicenseLink, renderLicenseSection };

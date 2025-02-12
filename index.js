@@ -53,10 +53,17 @@ async function init() {
         // console.log(answers);
         writeToFile('README.md', answers);
         const licenseBadge = generateMarkdown.renderLicenseBadge(license.license);
-        // const markdown = generateMarkdown.generateMarkdown(answers);
+        let markdown = generateMarkdown.generateMarkdown(answers);
+        // markdown = markdown.replace("\n\n", "\n");
+        markdown = markdown.split("#").join("");
+        markdown = markdown.split("\n").join("");
+        markdown = markdown.split(" ");
         // console.log(markdown);
         const readMe = fs.readFileSync('README.md', 'utf8');
         fs.writeFileSync('README.md', `${licenseBadge}\n${readMe}`);
+        for (let i = 2; i < markdown.length; i++) {
+            fs.appendFileSync('README.md', `\n[${markdown[i]}](#${markdown[i]})\n`);
+        }
         // const licenseLink = generateMarkdown.renderLicenseLink(license.license);
         // const licenseSection = generateMarkdown.renderLicenseSection(license.license);
         // console.log(licenseLink);
