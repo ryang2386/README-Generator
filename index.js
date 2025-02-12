@@ -42,7 +42,7 @@ function writeToFile(fileName, data, markdown) {
         fs.appendFileSync('README.md', `## License\n None.`);
       }
       readMeFile = fs.readFileSync('README.md', 'utf8');
-      fs.writeFileSync('README.md', `${readMeFile}\n\n ## Questions\n GitHub: ${data.github} - https://github.com/${data.github}\n\n Email: ${data.email}\n\n`);
+      fs.writeFileSync('README.md', `${readMeFile}\n\n ## Questions\n GitHub: ${data.github} - https://github.com/${data.github}\n\n Email: ${data.email}\n\n ${data.contact}`);
     }
 
 // TODO: Create a function to initialize app
@@ -80,9 +80,17 @@ async function init() {
             name: 'email',
         },
     ]);
+    const contact = await inquirer.prompt([
+        {
+            type: 'input',
+            message: 'How would you like to be contacted?',
+            name: 'contact',
+        },
+    ]);
         answers.license = license.license;
         answers.github = github.github;
         answers.email = email.email;
+        answers.contact = contact.contact;
 
         const licenseBadge = generateMarkdown.renderLicenseBadge(license.license);
         const licenseLink = generateMarkdown.renderLicenseLink(license.license);

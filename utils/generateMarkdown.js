@@ -51,6 +51,8 @@ function generateMarkdown(data) {
       markdown += `## Questions\n`;
     } else if (key === 'email') {
       markdown += '';
+    } else if (key === 'contact') {
+      markdown += '';
     } else {
       const capitalize = key;
       markdown += `## ${capitalize.charAt(0).toUpperCase() + capitalize.slice(1)}\n`;
