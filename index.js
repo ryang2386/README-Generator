@@ -41,6 +41,8 @@ function writeToFile(fileName, data, markdown) {
       } else {
         fs.appendFileSync('README.md', `## License\n None.`);
       }
+    //   const licenseSection = generateMarkdown.renderLicenseSection(data.license);
+    //   console.log(licenseSection);
       readMeFile = fs.readFileSync('README.md', 'utf8');
       fs.writeFileSync('README.md', `${readMeFile}\n\n ## Questions\n GitHub: ${data.github} - https://github.com/${data.github}\n\n Email: ${data.email}\n\n ${data.contact}`);
     }
@@ -65,7 +67,7 @@ async function init() {
             name: 'license',
             choices: ['MIT', 'Apache', 'GPL', 'None'],
         },
-    ])
+    ]);
     const github = await inquirer.prompt([
         {
             type: 'input',
@@ -102,6 +104,7 @@ async function init() {
 
         const licenseBadge = generateMarkdown.renderLicenseBadge(license.license);
         const licenseLink = generateMarkdown.renderLicenseLink(license.license);
+        // console.log(licenseLink);
         let markdown = generateMarkdown.generateMarkdown(answers);
 
         markdown = markdown.split("#").join("");
@@ -111,10 +114,7 @@ async function init() {
         writeToFile('README.md', answers, markdown);
         const readMe = fs.readFileSync('README.md', 'utf8');
         fs.writeFileSync('README.md', `[${licenseBadge}]${licenseLink}\n${readMe}`);
-
-        // const licenseSection = generateMarkdown.renderLicenseSection(license.license);
-        // console.log(licenseLink);
-        // console.log(licenseSection);
+        
 }
 // Function call to initialize app
 init();
